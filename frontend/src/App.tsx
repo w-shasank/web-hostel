@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import RoomCard from './components/RoomCard';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow p-4">
+        <h1 className="text-2xl font-bold my-4">Our Rooms</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <RoomCard title="Deluxe Room" description="Spacious and comfortable." />
+          <RoomCard title="Standard Room" description="Cozy and convenient." />
+          <RoomCard title="Budget Room" description="Affordable for everyone." />
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 }
