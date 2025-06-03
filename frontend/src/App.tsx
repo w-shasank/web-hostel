@@ -1,23 +1,28 @@
 import React from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import RoomCard from './components/RoomCard';
-import './App.css';
+import Layout from './components/Layout';
+import Hero from './components/Hero';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-grow p-4">
-        <h1 className="text-2xl font-bold my-4">Our Rooms</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <RoomCard title="Deluxe Room" descriptiontel Management="Spacious and comfortable." />
-          <RoomCard title="Standard Room" description="Cozy and convenient." />
-          <RoomCard title="Budget Room" description="Affordable for everyone." />
+    <Layout>
+      <Hero />
+      <section className="section">
+        <div className="container mx-auto">
+          <h2 className="text-center mb-12">Our Rooms</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Sample Room Cards */}
+            {[1, 2, 3].map((room) => (
+              <div key={room} className="card">
+                <div className="aspect-w-16 aspect-h-9 bg-ui-gray rounded-lg mb-4"></div>
+                <h3 className="font-serif text-xl mb-2">Deluxe Room {room}</h3>
+                <p className="text-muted mb-4">Comfortable and spacious room with modern amenities.</p>
+                <button className="btn w-full">Book Now</button>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-      <Footer />
-    </div>
+      </section>
+    </Layout>
   );
 }
 
